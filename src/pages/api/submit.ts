@@ -19,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
         console.log(email)
         const { data, error } = await resend.emails.send({
-            from: 'ConfessIt Admins!! <getahifromconfessit@resend.dev>',
+            from: 'Admin <getahi@resend.dev>',
             to: [email],
             subject: '"Peek-A-Boo! Its Me Saying Hi!',
             react: EmailTemplate(),
