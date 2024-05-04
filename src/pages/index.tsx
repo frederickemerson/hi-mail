@@ -9,7 +9,7 @@ export default function Home() {
   const [email,setEmail]  = useState<string>("")
   
   const handleSubmit = async () => {
-    const response = await fetch('http://localhost:3000/api/submit', {
+    const response = await fetch('/api/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
