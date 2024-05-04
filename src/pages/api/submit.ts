@@ -3,6 +3,8 @@ import { Resend } from 'resend';
 import { EmailTemplate } from '~/_templates/EmailTemplate';
 import { env } from '~/env';
 
+
+
 const resend = new Resend(env.RESEND_API_KEY);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -11,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             res.status(405).send('Method not allowed');
             return;
         }
-        const { email } = req.body;
+        const { email } = req.body as {email: string};
 
         if (!email) {
             res.status(400).send('Email is required');
