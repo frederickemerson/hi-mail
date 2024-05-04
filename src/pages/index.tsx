@@ -1,7 +1,32 @@
+"use client"
 import Head from "next/head";
-import Link from "next/link";
+import { useState } from "react";
+import { Button } from "~/components/ui/button";
+import { Input } from "~/components/ui/input";
 
 export default function Home() {
+  
+  const [email,setEmail]  = useState<string>("")
+  
+  const handleSubmit = async () => {
+    const response = await fetch('http://localhost:3000/api/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({email:email})
+    });
+
+    if (response.ok) {
+      const result = await response.text();
+      console.log('Server response:', result);
+      alert("Hi sent successfully!");
+    } else {
+      console.error('Failed to send hi');
+      alert("Failed to send hi.");
+    }
+  }
+  
   return (
     <>
       <Head>
@@ -12,31 +37,20 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-            Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
+            Feeling <span className="text-[hsl(280,100%,70%)]">Lonely</span> ?
           </h1>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-              href="https://create.t3.gg/en/usage/first-steps"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">First Steps →</h3>
-              <div className="text-lg">
-                Just the basics - Everything you need to know to set up your
-                database and authentication.
-              </div>
-            </Link>
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-              href="https://create.t3.gg/en/introduction"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">Documentation →</h3>
-              <div className="text-lg">
-                Learn more about Create T3 App, the libraries it uses, and how
-                to deploy it.
-              </div>
-            </Link>
+          <div className="w-1/2 justify-center items-center flex flex-row ">
+          <Input onChangeCapture={e => setEmail(e.currentTarget.value)}
+        className="flex-1 w-3/4 mx-4 rounded-md border border-gray-300 px-4 py-2 text-sm focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:focus:border-gray-600 dark:focus:ring-gray-600"
+        placeholder="Enter your email"
+        type="email"
+      />
+      <Button onClick={handleSubmit}
+        className="inline-flex h-10 w-1/4 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-200 dark:focus:ring-gray-600 dark:focus:ring-offset-gray-900"
+        type="submit"
+      >
+        Get A Hi 👋
+      </Button>
           </div>
         </div>
       </main>
