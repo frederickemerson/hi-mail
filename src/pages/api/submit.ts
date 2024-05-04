@@ -17,7 +17,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             res.status(400).send('Email is required');
             return;
         }
-        console.log(email)
         const { data, error } = await resend.emails.send({
             from: 'Admin <getahi@resend.dev>',
             to: [email],
