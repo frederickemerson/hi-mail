@@ -10,6 +10,7 @@ export const env = createEnv({
     NODEMAILER_MAIL:z.string(),
     NODEMAILER_MAILP:z.string(),
     TELEGRAM_BOT_TOKEN:z.string(),
+    VERCEL_URL:z.string(),
     NODE_ENV: z.enum(["development", "test", "production"]),
   },
 
@@ -31,6 +32,7 @@ export const env = createEnv({
     NODEMAILER_MAIL:process.env.NODEMAILER_MAIL,
     NODEMAILER_MAILP:process.env.NODEMAILER_MAILP,
     TELEGRAM_BOT_TOKEN:process.env.TELEGRAM_BOT_TOKEN,
+    VERCEL_URL:process.env.VERCEL_URL,
     NODE_ENV: process.env.NODE_ENV,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
