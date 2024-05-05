@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { env } from '~/env'; // Assuming env exports are correctly typed
+import { env } from '~/env'; 
 import nodemailer from 'nodemailer';
 
 interface MailOptions {
@@ -17,7 +17,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             return;
         }
 
-        // Ensure the request body is of the correct type
         const { email } = req.body as { email: string };
 
         if (!email) {
@@ -25,7 +24,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             return;
         }
 
-        // Set up transporter with environment variables
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -35,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         });
 
         const mailOptions: MailOptions = {
-            from: env.NODEMAILER_MAIL, // Using the sender email from environment variables
+            from: env.NODEMAILER_MAIL, 
             to: email,
             subject: 'Peek-A-Boo! It’s Me Saying Hi!',
             html: `
@@ -50,7 +48,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 </div>`
         };
 
-        // Send email and handle the response
         await transporter.sendMail(mailOptions);
         res.status(200).send('Email Success');
 

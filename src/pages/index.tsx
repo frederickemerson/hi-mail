@@ -5,7 +5,7 @@ import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 
 const isNusEmail = (email:string) => {
-  const regex = /^e.+@u\.nus\.edu$/;
+  const regex = /^[\w.%+-]+@u\.nus\.edu$/;
   return regex.test(email);
 }
 export default function Home() {
