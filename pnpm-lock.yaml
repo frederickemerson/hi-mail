@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@grammyjs/types':
+        specifier: ^3.6.2
+        version: 3.6.2
       '@radix-ui/react-slot':
         specifier: ^1.0.2
         version: 1.0.2(@types/react@18.3.1)(react@18.2.0)
@@ -140,6 +143,9 @@ packages:
   '@eslint/js@8.57.0':
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
+  '@grammyjs/types@3.6.2':
+    resolution: {integrity: sha512-7OswNRPN72qFUWhysNrY96+5LKBQXgxqw0iNbleYV7G8GB6ZPVdkwFMIZn1Fda2iRKMYT6S6Sxuel0465VGtHQ==}
 
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -2359,6 +2365,8 @@ snapshots:
       - supports-color
 
   '@eslint/js@8.57.0': {}
+
+  '@grammyjs/types@3.6.2': {}
 
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
