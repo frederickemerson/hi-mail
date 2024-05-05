@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const {message} = req.body as {message:Message};
 
         if (message?.text  === '/start') {
-            const tex =       'Welcome to <i>Authifier</i> <b>' + message?.from?.first_name+ '</b>.%0AUse /main to get started';
+            const tex =       'Welcome to <i>Authifier</i> <b>' + message?.from?.first_name+ '</b>. </br> Use /main to get started';
             await sendMessage(message.chat.id, tex);
           }  
         else if (message?.text  === '/main') {
@@ -23,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const keyboard = JSON.stringify({
               inline_keyboard: [[{
                 text: "Get A Hi",
-                web_app: { url: "https://t.me/authifier_bot/authify" }
+                web_app: { url: "https://hi-mail.vercel.app" }
               }]]
             });
             await sendMessage(message.chat.id, tex, keyboard);
