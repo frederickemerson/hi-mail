@@ -28,7 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             });
             await sendMessage(message.chat.id, tex, keyboard);
           }
-        
+      console.log(message)
       res.status(200).send('OK');
     }
     catch(error) {
