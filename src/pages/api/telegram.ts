@@ -1,7 +1,7 @@
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { env } from '~/env'
-import { InlineKeyboardMarkup, Message } from '@grammyjs/types';
+import type {  Message } from '@grammyjs/types';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
@@ -18,12 +18,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             await sendMessage(message.chat.id, tex);
           }  
         else if (message.text  === '/main') {
-            const tex = "Click below to get a hi";
+            const tex = "Authify now:";
           
             const keyboard = JSON.stringify({
               inline_keyboard: [[{
                 text: "Get A Hi",
-                web_app: { url: "https://hi-mail.vercel.app" }
+                web_app: { url: "https://hi-app.vercel.app" }
               }]]
             });
             await sendMessage(message.chat.id, tex, keyboard);
