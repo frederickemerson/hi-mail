@@ -18,12 +18,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             await sendMessage(message.chat.id, tex);
           }  
         else if (message.text  === '/main') {
-            const tex = "Open the Web Mini App:";
+            const tex = "Click below to get a hi";
           
             const keyboard = JSON.stringify({
               inline_keyboard: [[{
-                text: "Open Web App",
-                web_app: { url: "https://t.me/authifier_bot/authify" }
+                text: "Get A Hi",
+                web_app: { url: "https://hi-mail.vercel.app" }
               }]]
             });
             await sendMessage(message.chat.id, tex, keyboard);
