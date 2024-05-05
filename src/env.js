@@ -7,7 +7,8 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    RESEND_API_KEY:z.string(),
+    NODEMAILER_MAIL:z.string(),
+    NODEMAILER_MAILP:z.string(),
     NODE_ENV: z.enum(["development", "test", "production"]),
   },
 
@@ -26,7 +27,8 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
-     RESEND_API_KEY:process.env.RESEND_API_KEY,
+    NODEMAILER_MAIL:process.env.NODEMAILER_MAIL,
+    NODEMAILER_MAILP:process.env.NODEMAILER_MAILP,
     NODE_ENV: process.env.NODE_ENV,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },

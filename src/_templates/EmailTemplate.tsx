@@ -1,5 +1,6 @@
 import * as React from "react";
 
+
 export const EmailTemplate = () => (
   <div>
     <h1>As promised here is a Hi!</h1>
