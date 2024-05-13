@@ -50,7 +50,7 @@ export default function Home() {
             Feeling <span className="text-[hsl(280,100%,70%)]">Lonely</span> ?
           </h1>
           <div className="w-3/4 sm:w-1/2 justify-center items-center flex sm:flex-row flex-col">
-          <Input onChangeCapture={e => setEmail(e.currentTarget.value)}
+          <Input
         className="flex-1 w-full sm:w-3/4 mx-4 rounded-md border border-gray-300 px-4 py-2 text-sm focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:focus:border-gray-600 dark:focus:ring-gray-600"
         placeholder="Enter your email"
         type="email"
